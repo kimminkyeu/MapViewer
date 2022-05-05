@@ -1,11 +1,11 @@
 # 3D Wireframe Viewer
 ![map](./images/map.png)
 
-## **Features**
-'''
-./fdf ./test_maps/*.fdf
-'''
 
+## **Usage**
+```bash
+./fdf ./test_maps/*.fdf
+```
 ## **Features**
 
 - **Z-Depth shader** *(points far from the camera gets darker)*
