@@ -1,7 +1,4 @@
-# README.md
-
-## 3D Wireframe Viewer
-
+# 3D Wireframe Viewer
 ![map](./images/map.png)
 
 ## **Features**
@@ -12,7 +9,7 @@
 
 ```c
 // camera transform
-move            : Arrow key (Up Down Left Right)
+move            : Arrow-key (Up Down Left Right)
 rotate X        : W S
 rotate Y        : A D
 rotate Z        : Q E
@@ -49,9 +46,9 @@ a parameter to your program. Here is an example:
 ```
 
 Each number corresponds to a point in space:
-• The horizontal position corresponds to its axis.
-• The vertical position corresponds to its ordinate.
-• The value corresponds to its altitude.
+- The horizontal position corresponds to its axis.
+- The vertical position corresponds to its ordinate.
+- The value corresponds to its altitude.
 
 ## Make (macOS only)
 
