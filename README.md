@@ -2,6 +2,11 @@
 ![map](./images/map.png)
 
 ## **Features**
+'''
+./fdf ./test_maps/*.fdf
+'''
+
+## **Features**
 
 - **Z-Depth shader** *(points far from the camera gets darker)*
 - **RGBA color system** *(gradient color)*
