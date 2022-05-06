@@ -6,7 +6,7 @@
 #    By: minkyeki <minkyeki@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/19 12:57:40 by minkyeki          #+#    #+#              #
-#    Updated: 2022/05/04 11:37:13 by minkyeki         ###   ########.fr        #
+#    Updated: 2022/05/06 21:04:47 by minkyeki         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,6 @@ SRC_FILES	= fdf \
 			  draw_functions1 draw_functions2 draw_functions3 \
 # ==========================================
 
-MLX			= mlx_mms
 LIBFT		= libft
 INCLUDE		= include
 RM			= rm -f
@@ -57,32 +56,18 @@ all: $(NAME)
 
 # Linux X11 version (FIXME : 컴파일 $^ 로 변경, libft.a 연결)
 # =================================================
-# $(NAME): $(OBJ)
-#     @make -C $(LIBFT)
-#     mv libft/libft.a ./$(OBJ_DIR)
-#     @$(CC) $(CFLAGS) $^ $(OBJ_DIR)/libft.a -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz -o $(NAME)
-#     @echo "$(BLUE)==============================================$(DEF_COLOR)"
-#     @echo "$(BLUE)|   fdf Linux X11 version compile finished.  |$(DEF_COLOR)"
-#     @echo "$(BLUE)==============================================$(DEF_COLOR)"
-#
-# $(OBJ_DIR)%.o: $(SRC_DIR)%.c | $(OBJ_MKDIR)
-#     @$(CC) -Wall -Wextra -Werror -I/usr/include -I$(INCLUDE) -Imlx_linux -O3 -c $< -o $@
-#     @echo "$(YELLOW)Compiling... \t$< $(DEF_COLOR)"
-# =================================================
+$(NAME): $(OBJ)
+	@make -C $(LIBFT)
+	mv libft/libft.a ./$(OBJ_DIR)
+	@$(CC) $(CFLAGS) $^ $(OBJ_DIR)/libft.a -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz -o $(NAME)
+	cp $(NAME) ../
+	@echo "$(BLUE)==============================================$(DEF_COLOR)"
+	@echo "$(BLUE)|   fdf Linux X11 version compile finished.  |$(DEF_COLOR)"
+	@echo "$(BLUE)==============================================$(DEF_COLOR)"
 
-# MacOS openGL version (FIXME : 컴파일 $^ 로 변경, libft.a 연결)
-# =================================================
-# $(NAME): $(OBJ)
-#     @make -C $(LIBFT)
-#     @mv libft/libft.a ./$(OBJ_DIR)
-#     @$(CC) $< -L mlx -l mlx -framework OpenGL -framework AppKit -o $@
-#     @echo "$(BLUE)===========================================$(DEF_COLOR)"
-#     @echo "$(BLUE)|   fdf openGL version compile finished.  |$(DEF_COLOR)"
-#     @echo "$(BLUE)===========================================$(DEF_COLOR)"
-#
-# $(OBJ_DIR)%.o: $(SRC_DIR)%.c | $(OBJ_MKDIR)
-#     @$(CC) -Wall -Wextra -Werror -Imlx -I$(INCLUDE) -c $< -o $@
-#     @echo "$(YELLOW)Compiling... \t$< $(DEF_COLOR)"
+$(OBJ_DIR)%.o: $(SRC_DIR)%.c | $(OBJ_MKDIR)
+	@$(CC) -Wall -Wextra -Werror -I/usr/include -I$(INCLUDE) -Imlx_linux -O3 -c $< -o $@
+	@echo "$(YELLOW)Compiling... \t$< $(DEF_COLOR)"
 # =================================================
 
 # TODO : $< 는 OBJ의 첫번째 파일 (main) 만 들어간다. 
@@ -90,19 +75,19 @@ all: $(NAME)
 
 # MacOS MMS(Metal) Beta version
 # =================================================
-$(NAME): $(OBJ)
-	@make -C $(LIBFT)
-	@mv libft/libft.a ./$(OBJ_DIR)
-	@make -C $(MLX)
-	@cp $(MLX)/libmlx.dylib .
-	@$(CC) $(CFLAGS) $^ $(OBJ_DIR)/libft.a -Lmlx_mms -lmlx -framework Cocoa -framework Metal -framework MetalKit -framework QuartzCore -o $@
-	@echo "$(BLUE)============================================$(DEF_COLOR)"
-	@echo "$(BLUE)|   fdf mlx-mms version compile finished.  |$(DEF_COLOR)"
-	@echo "$(BLUE)============================================$(DEF_COLOR)"
-
-$(OBJ_DIR)%.o: $(SRC_DIR)%.c | $(OBJ_MKDIR)
-	@$(CC) $(CFLAGS) -Imlx_mms -I$(INCLUDE) -c $^ -o $@
-	@echo "$(YELLOW)Compiling... \t$< $(DEF_COLOR)"
+# $(NAME): $(OBJ)
+#     @make -C $(LIBFT)
+#     @mv libft/libft.a ./$(OBJ_DIR)
+#     @make -C mlx_mms
+#     @cp mlx_mms/libmlx.dylib .
+#     @$(CC) $(CFLAGS) $^ $(OBJ_DIR)/libft.a -Lmlx_mms -lmlx -framework Cocoa -framework Metal -framework MetalKit -framework QuartzCore -o $@
+#     @echo "$(BLUE)============================================$(DEF_COLOR)"
+#     @echo "$(BLUE)|   fdf mlx-mms version compile finished.  |$(DEF_COLOR)"
+#     @echo "$(BLUE)============================================$(DEF_COLOR)"
+#
+# $(OBJ_DIR)%.o: $(SRC_DIR)%.c | $(OBJ_MKDIR)
+#     @$(CC) $(CFLAGS) -Imlx_mms -I$(INCLUDE) -c $^ -o $@
+#     @echo "$(YELLOW)Compiling... \t$< $(DEF_COLOR)"
 # =================================================
 
 $(OBJ_MKDIR):
