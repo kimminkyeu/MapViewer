@@ -1,6 +1,6 @@
 # 3D Wireframe Viewer
 ![map](./images/map.png)
-
+This project works only on macOS due to its dependency on the mlx-mms library (Metal, Cocoa)
 
 ## **Usage**
 ```bash
