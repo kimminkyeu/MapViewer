@@ -2,8 +2,10 @@
 ![map](./images/map.png)
 This project works only on macOS due to its dependency on the mlx-mms library (Metal, Cocoa)
 
-## **Usage**
+## **Usage** (macOS only)
 ```bash
+make
+
 ./fdf ./test_maps/*.fdf
 ```
 ## **Features**
@@ -55,10 +57,3 @@ Each number corresponds to a point in space:
 - The vertical position corresponds to its ordinate.
 - The value corresponds to its altitude.
 
-## Make (macOS only)
-
-```bash
-cd ./source
-make
-cp ./fdf ../
-```
