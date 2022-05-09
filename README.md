@@ -4,9 +4,9 @@ This project works only on macOS due to its dependency on the mlx-mms library (M
 
 ## **Usage** (macOS only)
 ```bash
-make
+make #run make
 
-./fdf ./test_maps/*.fdf
+./fdf ./test_maps/select_your_map.fdf #execute program
 ```
 ## **Features**
 
