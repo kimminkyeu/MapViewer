@@ -26,8 +26,8 @@ zoom out        : Mouse scroll-Down
 reset camera    : R
 
 // Z-depth manipulation
-increase height : [
-decrease height : ]
+increase height : ]
+decrease height : [
 ```
 
 ![landscape](./images/landscape.png)
